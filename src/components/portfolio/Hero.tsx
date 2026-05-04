@@ -21,7 +21,6 @@ export const Hero = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Letter reveal
       const letters = nameRef.current?.querySelectorAll("span.letter");
       if (letters) {
         gsap.from(letters, {
@@ -34,7 +33,6 @@ export const Hero = () => {
           delay: 0.2,
         });
       }
-      // Subtitle / badge / ctas
       gsap.from(".hero-fade", {
         y: 30,
         opacity: 0,
@@ -43,7 +41,6 @@ export const Hero = () => {
         stagger: 0.12,
         delay: 1.1,
       });
-      // Floating chips entrance
       gsap.from(".floating-chip", {
         scale: 0,
         opacity: 0,
@@ -52,7 +49,6 @@ export const Hero = () => {
         stagger: 0.1,
         delay: 1.4,
       });
-      // Parallax grid
       gsap.to(gridRef.current, {
         yPercent: 30,
         ease: "none",
@@ -63,7 +59,6 @@ export const Hero = () => {
           scrub: true,
         },
       });
-      // Hero fade out on scroll
       gsap.to(".hero-content", {
         opacity: 0,
         y: -50,
@@ -79,18 +74,24 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} id="hero" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Animated grid bg */}
+    <section
+      ref={heroRef}
+      id="hero"
+      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center"
+    >
       <div ref={gridRef} className="absolute inset-0 grid-bg opacity-60" />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-      {/* Floating tech chips */}
       {FLOATING_CHIPS.map((chip) => (
         <div
           key={chip.label}
           className="floating-chip absolute hidden md:block z-10"
-          style={{ left: chip.x, top: chip.y, animation: `drift 12s ease-in-out ${chip.delay}s infinite` }}
+          style={{
+            left: chip.x,
+            top: chip.y,
+            animation: `drift 12s ease-in-out ${chip.delay}s infinite`,
+          }}
         >
           <div className="glass px-4 py-2 rounded-full text-xs font-medium text-primary border-primary/20">
             {chip.label}
@@ -98,8 +99,7 @@ export const Hero = () => {
         </div>
       ))}
 
-      <div className="hero-content relative z-20 text-center px-6 max-w-7xl mx-auto">
-        {/* Available badge */}
+      <div className="hero-content relative z-20 text-center px-6 max-w-6xl mx-auto">
         <div className="hero-fade inline-flex items-center gap-2.5 mb-8 glass px-5 py-2.5 rounded-full border-primary/30">
           <span className="relative flex h-2.5 w-2.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
@@ -110,11 +110,10 @@ export const Hero = () => {
           </span>
         </div>
 
-        {/* Name */}
         <h1
           ref={nameRef}
-          className="font-display font-extrabold leading-[0.85] mb-6"
-          style={{ fontSize: "clamp(2.8rem, 11vw, 12rem)" }}
+          className="font-display font-extrabold leading-[0.9] mb-6"
+          style={{ fontSize: "clamp(2.4rem, 8vw, 7.5rem)" }}
         >
           {NAME.split("").map((ch, i) => (
             <span
@@ -127,12 +126,15 @@ export const Hero = () => {
           ))}
         </h1>
 
-        <p className="hero-fade text-lg md:text-2xl text-muted-foreground mb-2 font-light">
-          Ingénieure <span className="text-primary font-medium">IA</span> · <span className="text-primary font-medium">IoT</span> · <span className="text-primary font-medium">Santé Numérique</span>
+        <p className="hero-fade text-base md:text-xl text-foreground/90 mb-3 font-light leading-snug max-w-3xl mx-auto">
+          Étudiante Ingénieure en{" "}
+          <span className="text-primary font-medium">
+            Informatique et Systèmes d'Information pour la Santé
+          </span>
         </p>
-        <p className="hero-fade text-sm md:text-base text-muted-foreground/70 mb-12 flex items-center justify-center gap-2">
+        <p className="hero-fade text-sm md:text-base text-muted-foreground mb-10 flex items-center justify-center gap-2 flex-wrap">
           <Sparkles className="w-4 h-4 text-primary" />
-          Étudiante française-tunisienne · ISIS — Groupe INSA Toulouse
+          ISIS Castres — Groupe INSA Toulouse — Université Champollion · 2025–2028
         </p>
 
         <div className="hero-fade flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -145,7 +147,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-muted-foreground/60">
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
         <ArrowDown className="w-4 h-4 animate-bounce-down" />
