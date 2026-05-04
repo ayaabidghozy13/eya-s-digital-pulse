@@ -3,7 +3,8 @@ export const Nav = () => {
     { href: "#about", label: "À propos" },
     { href: "#experience", label: "Parcours" },
     { href: "#projects", label: "Projets" },
-    { href: "#skills", label: "Skills" },
+    { href: "#skills", label: "Compétences" },
+    { href: "#engagement", label: "Engagement" },
     { href: "#contact", label: "Contact" },
   ];
   return (
