@@ -148,47 +148,38 @@ export const Projects = () => {
                   <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center shadow-glow">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor-hover
-                    aria-label={`Code source de ${p.title} sur GitHub`}
-                    className="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-primary/50 hover:text-primary transition-all"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
+                  <span className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 text-primary/90 border border-primary/30">
+                    {p.tag}
+                  </span>
                 </div>
 
-                <span className="text-xs uppercase tracking-wider text-primary/80 mb-2 block">
-                  {p.tag}
-                </span>
-                <h3 className="font-display text-2xl md:text-3xl mb-3 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-2xl md:text-3xl mb-2 group-hover:text-primary transition-colors">
                   {p.title}
                 </h3>
+
+                <div className="flex flex-col gap-1 mb-4">
+                  <span className="inline-flex items-center gap-1.5 text-white/40" style={{ fontSize: "0.72rem" }}>
+                    <MapPin className="w-3 h-3" />
+                    {p.location}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-white/30" style={{ fontSize: "0.68rem" }}>
+                    <Building2 className="w-3 h-3" />
+                    {p.context}
+                  </span>
+                </div>
+
                 <p
                   className="text-muted-foreground text-sm leading-relaxed mb-6"
                   dangerouslySetInnerHTML={{ __html: p.description }}
                 />
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span key={t} className="pill">
                       {t}
                     </span>
                   ))}
                 </div>
-
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-cursor-hover
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary hover:gap-3 transition-all"
-                >
-                  <Github className="w-3.5 h-3.5" />
-                  Voir le code
-                </a>
               </div>
             </div>
           );
