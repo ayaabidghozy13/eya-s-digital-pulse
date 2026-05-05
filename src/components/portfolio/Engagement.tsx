@@ -128,11 +128,4 @@ export const Engagement = () => {
     </section>
   );
 };
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-};
+
