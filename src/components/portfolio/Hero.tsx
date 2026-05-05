@@ -6,12 +6,25 @@ import { ArrowDown, Sparkles } from "lucide-react";
 const NAME = "EYA ABID GHOZZI";
 
 const FLOATING_CHIPS = [
-  { label: "Deep Learning", x: "8%", y: "20%", delay: 0 },
-  { label: "ESP32", x: "85%", y: "18%", delay: 1.2 },
-  { label: "BiLSTM", x: "12%", y: "70%", delay: 2.4 },
-  { label: "MQTT", x: "82%", y: "65%", delay: 0.6 },
-  { label: "Django", x: "5%", y: "45%", delay: 1.8 },
-  { label: "Next.js", x: "90%", y: "42%", delay: 3 },
+  { label: "Gestion de Projet", x: "4%", y: "12%", dur: 14, delay: 0 },
+  { label: "Agile Scrum", x: "20%", y: "8%", dur: 16, delay: 1.2 },
+  { label: "Chef de Projet", x: "70%", y: "10%", dur: 18, delay: 0.4 },
+  { label: "EBIOS", x: "88%", y: "14%", dur: 13, delay: 2.0 },
+  { label: "BiLSTM", x: "6%", y: "30%", dur: 15, delay: 0.8 },
+  { label: "Django", x: "92%", y: "28%", dur: 17, delay: 1.6 },
+  { label: "Vue.js", x: "2%", y: "48%", dur: 19, delay: 2.4 },
+  { label: "Flutter", x: "94%", y: "46%", dur: 14, delay: 0.2 },
+  { label: "MQTT", x: "8%", y: "66%", dur: 16, delay: 1.0 },
+  { label: "ESP32", x: "90%", y: "64%", dur: 18, delay: 2.2 },
+  { label: "Deep Learning", x: "14%", y: "82%", dur: 15, delay: 0.6 },
+  { label: "Next.js", x: "78%", y: "84%", dur: 17, delay: 1.4 },
+  { label: "PostgreSQL", x: "32%", y: "88%", dur: 20, delay: 2.6 },
+  { label: "CCNA", x: "60%", y: "90%", dur: 13, delay: 0.3 },
+  { label: "HL7/FHIR", x: "24%", y: "20%", dur: 19, delay: 1.8 },
+  { label: "TensorFlow", x: "74%", y: "22%", dur: 14, delay: 0.9 },
+  { label: "Spring Boot", x: "16%", y: "56%", dur: 18, delay: 2.1 },
+  { label: "IoT", x: "84%", y: "54%", dur: 15, delay: 0.5 },
+  { label: "RGPD", x: "46%", y: "6%", dur: 17, delay: 1.5 },
 ];
 
 export const Hero = () => {
@@ -46,8 +59,8 @@ export const Hero = () => {
         opacity: 0,
         duration: 0.8,
         ease: "back.out(1.6)",
-        stagger: 0.1,
-        delay: 1.4,
+        stagger: 0.05,
+        delay: 1.2,
       });
       gsap.to(gridRef.current, {
         yPercent: 30,
@@ -83,17 +96,17 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-      {FLOATING_CHIPS.map((chip) => (
+      {FLOATING_CHIPS.map((chip, i) => (
         <div
           key={chip.label}
-          className="floating-chip absolute hidden md:block z-10"
+          className={`floating-chip absolute z-10 ${i > 9 ? "hidden md:block" : "hidden sm:block"}`}
           style={{
             left: chip.x,
             top: chip.y,
-            animation: `drift 12s ease-in-out ${chip.delay}s infinite`,
+            animation: `drift ${chip.dur}s ease-in-out ${chip.delay}s infinite`,
           }}
         >
-          <div className="glass px-4 py-2 rounded-full text-xs font-medium text-primary border-primary/20">
+          <div className="glass px-3 py-1.5 rounded-full text-[10px] md:text-xs font-medium text-primary/90 border-primary/20 whitespace-nowrap">
             {chip.label}
           </div>
         </div>
@@ -112,8 +125,8 @@ export const Hero = () => {
 
         <h1
           ref={nameRef}
-          className="font-display font-extrabold leading-[0.9] mb-6"
-          style={{ fontSize: "clamp(2.4rem, 8vw, 7.5rem)" }}
+          className="font-display font-extrabold leading-[0.95] mb-6 whitespace-nowrap"
+          style={{ fontSize: "clamp(1.8rem, 7vw, 6rem)" }}
         >
           {NAME.split("").map((ch, i) => (
             <span

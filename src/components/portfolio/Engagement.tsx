@@ -50,14 +50,18 @@ export const Engagement = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".engagement-card", {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
+      gsap.fromTo(
+        ".engagement-card",
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 95%", once: true },
+        }
+      );
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -109,9 +113,12 @@ export const Engagement = () => {
                   <p className="text-xs uppercase tracking-wider text-primary/80 mb-3">
                     {e.role}
                   </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     {e.description}
                   </p>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground/60 border-t border-white/5 pt-3">
+                    📌 Image à remplacer
+                  </div>
                 </div>
               </article>
             );
@@ -121,3 +128,4 @@ export const Engagement = () => {
     </section>
   );
 };
+

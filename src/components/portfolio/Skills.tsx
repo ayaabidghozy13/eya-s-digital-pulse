@@ -10,6 +10,35 @@ import {
   Workflow,
 } from "lucide-react";
 
+const LOGO_MAP: Record<string, string> = {
+  Python: "python",
+  Java: "openjdk",
+  JavaScript: "javascript",
+  React: "react",
+  "Vue.js": "vuedotjs",
+  "Next.js": "nextdotjs",
+  Django: "django",
+  "Spring Boot": "springboot",
+  FastAPI: "fastapi",
+  "Node.js": "nodedotjs",
+  Flutter: "flutter",
+  "Dart / Flutter": "flutter",
+  TensorFlow: "tensorflow",
+  PyTorch: "pytorch",
+  OpenCV: "opencv",
+  PostgreSQL: "postgresql",
+  MongoDB: "mongodb",
+  Firebase: "firebase",
+  Arduino: "arduino",
+  Git: "git",
+  GitHub: "github",
+  GitLab: "gitlab",
+  Docker: "docker",
+  Figma: "figma",
+  Linux: "linux",
+  "Django REST": "django",
+};
+
 const SKILL_GROUPS = [
   {
     icon: Stethoscope,
@@ -95,6 +124,10 @@ const SKILL_GROUPS = [
       "Conception centrée utilisateur",
       "Figma",
       "Git",
+      "GitHub",
+      "GitLab",
+      "Docker",
+      "Linux",
     ],
   },
 ];
@@ -106,21 +139,29 @@ export const Skills = () => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".skill-group").forEach((group) => {
         const pills = group.querySelectorAll(".skill-pill");
-        gsap.from(group, {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: { trigger: group, start: "top 88%" },
-        });
-        gsap.from(pills, {
-          scale: 0,
-          opacity: 0,
-          duration: 0.45,
-          stagger: 0.04,
-          ease: "back.out(2)",
-          scrollTrigger: { trigger: group, start: "top 88%" },
-        });
+        gsap.fromTo(
+          group,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: group, start: "top 95%", once: true },
+          }
+        );
+        gsap.fromTo(
+          pills,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.45,
+            stagger: 0.03,
+            ease: "back.out(2)",
+            scrollTrigger: { trigger: group, start: "top 95%", once: true },
+          }
+        );
       });
     }, ref);
     return () => ctx.revert();
@@ -150,11 +191,25 @@ export const Skills = () => {
                   <h3 className="font-display text-base leading-tight">{g.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {g.skills.map((s) => (
-                    <span key={s} className="skill-pill pill">
-                      {s}
-                    </span>
-                  ))}
+                  {g.skills.map((s) => {
+                    const slug = LOGO_MAP[s];
+                    return (
+                      <span key={s} className="skill-pill pill">
+                        {slug && (
+                          <img
+                            src={`https://cdn.simpleicons.org/${slug}`}
+                            alt=""
+                            loading="lazy"
+                            className="w-3.5 h-3.5 object-contain"
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = "none";
+                            }}
+                          />
+                        )}
+                        {s}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             );
