@@ -8,7 +8,7 @@ import {
   ScanFace,
   Building2,
   Bot,
-  Github,
+  MapPin,
 } from "lucide-react";
 
 const PROJECTS = [
@@ -16,55 +16,61 @@ const PROJECTS = [
     icon: Activity,
     title: "HopeLink",
     tag: "IA · IoT · Santé",
+    location: "Sousse, Tunisie",
+    context: "Laboratoire MARS — Modeling of Automated Reasoning Systems",
     description:
       "Plateforme de surveillance médicale en temps réel combinant capteurs ESP32, modèle BiLSTM de prédiction d'événements physiologiques et dashboard Next.js, pour permettre un suivi clinique fiable à distance.",
     tech: ["Django REST", "Next.js", "BiLSTM", "ESP32", "MQTT"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Footprints,
     title: "Step By Step",
     tag: "Dispositif Médical",
+    location: "Castres, France",
+    context: "École ISIS — Module Innovation Santé",
     description:
       "Dispositif IoT portable de détection des troubles de la marche, avec analyse temps réel des signaux et reporting clair destiné au personnel médical pour faciliter le diagnostic.",
     tech: ["Arduino", "IoT", "Signal Processing", "Mobile"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: ClipboardCheck,
     title: "ISIS Eval",
     tag: "Application Web",
+    location: "Castres, France",
+    context: "École ISIS — Projet Tuteuré 1ère année cycle ingénieur",
     description:
       "Application complète d'évaluation des enseignements pour l'école ISIS&nbsp;: back Spring Boot, front Vue.js, gestion fine des rôles et reporting analytique pour la direction pédagogique.",
     tech: ["Vue.js", "Spring Boot", "REST", "PostgreSQL"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: ScanFace,
     title: "Reconnaissance Faciale",
     tag: "Computer Vision",
+    location: "Monastir, Tunisie",
+    context: "Flesk — Startup franco-tunisienne",
     description:
       "Système de contrôle d'accès sécurisé basé sur le deep learning, avec reconnaissance temps réel et API d'authentification prête à intégrer dans une infrastructure existante.",
     tech: ["TensorFlow", "OpenCV", "FastAPI", "PyTorch"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Building2,
     title: "Stadium Management",
     tag: "IoT · Mobile",
+    location: "Sfax, Tunisie",
+    context: "Tn Smart IoT — Startup IoT tunisienne",
     description:
       "Application Flutter de supervision d'infrastructures sportives connectées&nbsp;: pilotage des capteurs, alertes temps réel et synchronisation cloud Firebase pour les équipes terrain.",
     tech: ["Flutter", "Firebase", "ESP8266", "Dart"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Bot,
     title: "Line Follower Robot",
     tag: "1er Prix IEEE 2023",
+    location: "Tunisie",
+    context: "Compétition internationale IEEE RoboNerds 2023",
     description:
       "Robot suiveur de ligne autonome, vainqueur du concours IEEE RoboNerds 2023. Optimisation fine de l'algorithme PID et des capteurs IR pour garantir une trajectoire stable à grande vitesse.",
     tech: ["Arduino", "PID", "Embedded C", "Hardware"],
-    github: "https://github.com/ayaabidghozy13",
   },
 ];
 
@@ -142,47 +148,38 @@ export const Projects = () => {
                   <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center shadow-glow">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor-hover
-                    aria-label={`Code source de ${p.title} sur GitHub`}
-                    className="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-primary/50 hover:text-primary transition-all"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
+                  <span className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 text-primary/90 border border-primary/30">
+                    {p.tag}
+                  </span>
                 </div>
 
-                <span className="text-xs uppercase tracking-wider text-primary/80 mb-2 block">
-                  {p.tag}
-                </span>
-                <h3 className="font-display text-2xl md:text-3xl mb-3 group-hover:text-primary transition-colors">
+                <h3 className="font-display text-2xl md:text-3xl mb-2 group-hover:text-primary transition-colors">
                   {p.title}
                 </h3>
+
+                <div className="flex flex-col gap-1 mb-4">
+                  <span className="inline-flex items-center gap-1.5 text-white/40" style={{ fontSize: "0.72rem" }}>
+                    <MapPin className="w-3 h-3" />
+                    {p.location}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-white/30" style={{ fontSize: "0.68rem" }}>
+                    <Building2 className="w-3 h-3" />
+                    {p.context}
+                  </span>
+                </div>
+
                 <p
                   className="text-muted-foreground text-sm leading-relaxed mb-6"
                   dangerouslySetInnerHTML={{ __html: p.description }}
                 />
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span key={t} className="pill">
                       {t}
                     </span>
                   ))}
                 </div>
-
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-cursor-hover
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary hover:gap-3 transition-all"
-                >
-                  <Github className="w-3.5 h-3.5" />
-                  Voir le code
-                </a>
               </div>
             </div>
           );
