@@ -8,7 +8,7 @@ import {
   ScanFace,
   Building2,
   Bot,
-  Github,
+  MapPin,
 } from "lucide-react";
 
 const PROJECTS = [
