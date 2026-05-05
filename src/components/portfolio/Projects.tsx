@@ -16,55 +16,61 @@ const PROJECTS = [
     icon: Activity,
     title: "HopeLink",
     tag: "IA · IoT · Santé",
+    location: "Sousse, Tunisie",
+    context: "Laboratoire MARS — Modeling of Automated Reasoning Systems",
     description:
       "Plateforme de surveillance médicale en temps réel combinant capteurs ESP32, modèle BiLSTM de prédiction d'événements physiologiques et dashboard Next.js, pour permettre un suivi clinique fiable à distance.",
     tech: ["Django REST", "Next.js", "BiLSTM", "ESP32", "MQTT"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Footprints,
     title: "Step By Step",
     tag: "Dispositif Médical",
+    location: "Castres, France",
+    context: "École ISIS — Module Innovation Santé",
     description:
       "Dispositif IoT portable de détection des troubles de la marche, avec analyse temps réel des signaux et reporting clair destiné au personnel médical pour faciliter le diagnostic.",
     tech: ["Arduino", "IoT", "Signal Processing", "Mobile"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: ClipboardCheck,
     title: "ISIS Eval",
     tag: "Application Web",
+    location: "Castres, France",
+    context: "École ISIS — Projet Tuteuré 1ère année cycle ingénieur",
     description:
       "Application complète d'évaluation des enseignements pour l'école ISIS&nbsp;: back Spring Boot, front Vue.js, gestion fine des rôles et reporting analytique pour la direction pédagogique.",
     tech: ["Vue.js", "Spring Boot", "REST", "PostgreSQL"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: ScanFace,
     title: "Reconnaissance Faciale",
     tag: "Computer Vision",
+    location: "Monastir, Tunisie",
+    context: "Flesk — Startup franco-tunisienne",
     description:
       "Système de contrôle d'accès sécurisé basé sur le deep learning, avec reconnaissance temps réel et API d'authentification prête à intégrer dans une infrastructure existante.",
     tech: ["TensorFlow", "OpenCV", "FastAPI", "PyTorch"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Building2,
     title: "Stadium Management",
     tag: "IoT · Mobile",
+    location: "Sfax, Tunisie",
+    context: "Tn Smart IoT — Startup IoT tunisienne",
     description:
       "Application Flutter de supervision d'infrastructures sportives connectées&nbsp;: pilotage des capteurs, alertes temps réel et synchronisation cloud Firebase pour les équipes terrain.",
     tech: ["Flutter", "Firebase", "ESP8266", "Dart"],
-    github: "https://github.com/ayaabidghozy13",
   },
   {
     icon: Bot,
     title: "Line Follower Robot",
     tag: "1er Prix IEEE 2023",
+    location: "Tunisie",
+    context: "Compétition internationale IEEE RoboNerds 2023",
     description:
       "Robot suiveur de ligne autonome, vainqueur du concours IEEE RoboNerds 2023. Optimisation fine de l'algorithme PID et des capteurs IR pour garantir une trajectoire stable à grande vitesse.",
     tech: ["Arduino", "PID", "Embedded C", "Hardware"],
-    github: "https://github.com/ayaabidghozy13",
   },
 ];
 
