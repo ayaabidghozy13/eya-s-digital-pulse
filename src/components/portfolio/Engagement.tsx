@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Users, Cpu, HeartHandshake, GraduationCap } from "lucide-react";
+import gdscImg from "@/assets/engagement-gdsc.png";
+import ieeeImg from "@/assets/engagement-ieee.png";
+import sosImg from "@/assets/engagement-sos.jpg";
+import cordeesImg from "@/assets/engagement-cordees.png";
 
 const ENGAGEMENTS = [
   {
@@ -10,8 +14,8 @@ const ENGAGEMENTS = [
     description:
       "Animatrice technique du club Google à l'ISITCOM, j'ai organisé des ateliers de développement, des hackathons internes et des sessions de veille technologique pour accompagner les étudiants dans leurs premiers projets numériques.",
     icon: Cpu,
-    accent: "from-[#4285F4] via-[#EA4335] to-[#FBBC05]",
     badge: "GDSC",
+    image: gdscImg,
   },
   {
     org: "IEEE Student Branch — ISITCOM",
@@ -20,8 +24,8 @@ const ENGAGEMENTS = [
     description:
       "Membre de la branche IEEE de l'ISITCOM, j'ai participé aux compétitions internationales de robotique et aux événements techniques inter-universités, dont IEEE RoboNerds 2023 où notre équipe a remporté le 1er prix.",
     icon: Users,
-    accent: "from-[#00629B] to-[#0073B7]",
     badge: "IEEE",
+    image: ieeeImg,
   },
   {
     org: "SOS Ambassadors — Tunisie",
@@ -30,8 +34,8 @@ const ENGAGEMENTS = [
     description:
       "Au sein de l'association SOS Ambassadeurs, j'ai contribué à la coordination des ressources humaines et participé au hackathon HackVision 2025 pour développer des solutions IA au service des enfants vulnérables.",
     icon: HeartHandshake,
-    accent: "from-[#E4002B] to-[#A00020]",
     badge: "SOS",
+    image: sosImg,
   },
   {
     org: "Cordées de la Réussite — France",
@@ -40,8 +44,8 @@ const ENGAGEMENTS = [
     description:
       "Ambassadrice du programme national Cordées de la Réussite, je m'engage à guider des lycéens vers les filières scientifiques et les grandes écoles d'ingénieurs, en partageant mon parcours franco-tunisien.",
     icon: GraduationCap,
-    accent: "from-[#0055A4] via-[#FFFFFF] to-[#EF4135]",
     badge: "CDR",
+    image: cordeesImg,
   },
 ];
 
@@ -88,16 +92,19 @@ export const Engagement = () => {
                 className="engagement-card glass-strong rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-glow"
                 data-cursor-hover
               >
-                <div
-                  className={`relative h-28 bg-gradient-to-br ${e.accent} overflow-hidden`}
-                >
-                  <div className="absolute inset-0 bg-background/40" />
-                  <div className="absolute inset-0 grid-bg opacity-30" />
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={e.image}
+                    alt={e.org}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                   <div className="absolute bottom-3 left-5 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-background/80 backdrop-blur border border-white/10 flex items-center justify-center shadow-card">
+                    <div className="w-11 h-11 rounded-xl bg-background/80 backdrop-blur border border-primary/30 flex items-center justify-center shadow-card">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <span className="font-display text-2xl text-white drop-shadow-lg tracking-tight">
+                    <span className="font-display text-xl text-white drop-shadow-lg tracking-tight">
                       {e.badge}
                     </span>
                   </div>
@@ -113,12 +120,9 @@ export const Engagement = () => {
                   <p className="text-xs uppercase tracking-wider text-primary/80 mb-3">
                     {e.role}
                   </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {e.description}
                   </p>
-                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground/60 border-t border-white/5 pt-3">
-                    📌 Image à remplacer
-                  </div>
                 </div>
               </article>
             );
@@ -128,4 +132,3 @@ export const Engagement = () => {
     </section>
   );
 };
-
