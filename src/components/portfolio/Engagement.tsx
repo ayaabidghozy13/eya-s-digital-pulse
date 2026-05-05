@@ -50,14 +50,18 @@ export const Engagement = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".engagement-card", {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
+      gsap.fromTo(
+        ".engagement-card",
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ref.current, start: "top 95%", once: true },
+        }
+      );
     }, ref);
     return () => ctx.revert();
   }, []);
