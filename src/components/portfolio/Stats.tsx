@@ -5,7 +5,7 @@ const STATS = [
   { value: 4, suffix: "+", label: "Stages & expériences" },
   { value: 6, suffix: "", label: "Projets livrés" },
   { value: 3, suffix: "", label: "Prix & podiums" },
-  { value: 15, suffix: "+", label: "Technos maîtrisées" },
+  { value: 10, suffix: "+", label: "Technos maîtrisées" },
 ];
 
 export const Stats = () => {

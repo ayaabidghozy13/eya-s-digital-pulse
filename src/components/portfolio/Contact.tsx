@@ -35,10 +35,10 @@ export const Contact = () => {
           07 — Contact
         </div>
         <h2 className="contact-el font-display text-4xl md:text-6xl mb-5 leading-[1.05]">
-          Travaillons <span className="text-gradient">ensemble.</span>
+          Recherche d'alternance <span className="text-gradient">– Septembre 2026</span>
         </h2>
         <p className="contact-el text-muted-foreground text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-          Je suis disponible pour une alternance dès septembre 2026 en santé numérique, IA ou IoT. Si vous portez un projet qui a du sens, qui touche au soin ou à l'innovation médicale, écrivez-moi&nbsp;: j'aurai à cœur d'en discuter avec vous.
+          Étudiante en ingénierie spécialisée en Informatique et Systèmes d'Information pour la Santé, je suis à la recherche d'une alternance à compter de septembre 2026. Vous recrutez de nouveaux talents pour vos projets en santé numérique, IA ou IoT&nbsp;? Discutons de vos besoins et de mon profil.
         </p>
 
         <a
