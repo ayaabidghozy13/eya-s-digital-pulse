@@ -125,8 +125,8 @@ export const Hero = () => {
 
         <h1
           ref={nameRef}
-          className="font-display font-extrabold leading-[0.95] mb-6 whitespace-nowrap"
-          style={{ fontSize: "clamp(1.8rem, 7vw, 6rem)" }}
+          className="font-display font-light leading-[0.95] mb-6 whitespace-nowrap tracking-tight"
+          style={{ fontSize: "clamp(1.4rem, 5.2vw, 4.5rem)" }}
         >
           {NAME.split("").map((ch, i) => (
             <span

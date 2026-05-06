@@ -38,7 +38,7 @@ export const About = () => {
         <div className="text-xs uppercase tracking-[0.3em] text-primary mb-4">01 — À propos</div>
         <h2 className="font-display text-3xl md:text-5xl mb-5 max-w-4xl leading-[1.1]">
           Au croisement de la <span className="text-gradient">santé</span>, du{" "}
-          <span className="text-gradient">code</span> et de l'
+          <span className="text-gradient">numérique</span> et de l'
           <span className="text-gradient">intelligence</span>.
         </h2>
         <p className="text-muted-foreground text-base md:text-lg max-w-3xl mb-14 leading-relaxed">
