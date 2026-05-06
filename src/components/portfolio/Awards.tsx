@@ -6,6 +6,8 @@ import hackvisionImg from "@/assets/award-hackvision.jpg";
 import robonerdsImg from "@/assets/award-robonerds.png";
 import nvidiaImg from "@/assets/award-nvidia.jpg";
 import istqbImg from "@/assets/award-istqb.jpg";
+import ccnaImg from "@/assets/award-ccna.png";
+import ccnpImg from "@/assets/award-ccnp.png";
 
 type Category = "prix" | "cert";
 
@@ -66,6 +68,24 @@ const AWARDS: {
     image: istqbImg,
     detail:
       "Certification internationale en méthodologies de test logiciel. J'y ai consolidé ma rigueur sur la qualité, la traçabilité des exigences et la stratégie de test produit.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Cisco CCNA — Certified Network Associate",
+    year: "2024",
+    category: "cert",
+    image: ccnaImg,
+    detail:
+      "Certification Cisco validant la maîtrise des fondamentaux du réseau : routage, commutation, adressage IP, sécurité de base et dépannage. Une base solide pour concevoir et administrer des infrastructures fiables, y compris en environnement hospitalier.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Cisco CCNP Enterprise",
+    year: "2025",
+    category: "cert",
+    image: ccnpImg,
+    detail:
+      "Certification avancée Cisco couvrant l'architecture, la sécurité et l'automatisation des réseaux d'entreprise. Compétences clés en routage avancé, SD-WAN et conception d'infrastructures critiques pour des SI sensibles comme ceux de la santé.",
   },
   {
     icon: Award,
